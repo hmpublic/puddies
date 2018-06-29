@@ -1,13 +1,10 @@
 <html>
     <head>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
         <script>
             function callNativeApp(data) {   
                 try {
-                    // 從JS傳送資訊到App裡設定的callbackHandler。
                     webkit.messageHandlers.callbackHandler.postMessage(data);
                 } catch(err) {
-                    // 如果找不到定義的callbackHandler則回傳錯誤訊息。
                     console.log('The native context does not exist yet!');
                 }
             }
@@ -17,7 +14,19 @@
                 background-color: #4CAF50;
                 border: none;
                 color: white;
-                padding: 50px 150px;
+                padding: 50px 100px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 60px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            button#no {
+                background-color: #C04141;
+                border: none;
+                color: white;
+                padding: 50px 100px;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
@@ -28,8 +37,9 @@
         </style>
     </head>
     <body style="font-family: HelveticaNeue-Light; font-size: 40px; color: #007934; background-color: #BEDCCD; padding: 65px">
-        <button id="yes" type="button" onclick="callNativeApp('HiHi')">Click Me!</button>
-        <p style="font-size: 60px; "> 2 PUDDIES PRIVACY POLICY</p>
+        <button id="yes" type="button" onclick="callNativeApp('agree')">Agree</button>
+        <button id="no" type="button" onclick="callNativeApp('disagree')">Disagree</button>
+        <p style="font-size: 60px; ">PUDDIES PRIVACY POLICY</p>
         <p />
         Puddies respects your privacy. Puddies and its affiliates (“Puddies” or the “Company”) offer users of Puddies’s mobile applications (the “Application”) (collectively referred to as the “Services”). When you use our services, you’re trusting us with your information. We understand this is a big responsibility and work hard to protect your information and put you in control.
         
