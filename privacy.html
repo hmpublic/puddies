@@ -1,17 +1,20 @@
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
         <script>
-            $(document).ready(function() {
-                              function callingApp() {
-                              try {
-                              webkit.messageHandlers.callbackHandler.postMessage("camera");
-                              } catch(err) {
-                              console.log('The native context does not exist yet');
-                              }
-                              }
-                              });
-            </script>
+            $('#yes').on('click', () => {
+                callNativeApp("Hi Native App !!");
+            });
+            function callNativeApp(data) {   
+                try {
+                    // 從JS傳送資訊到App裡設定的callbackHandler。
+                    webkit.messageHandlers.callbackHandler.postMessage(data);
+                } catch(err) {
+                    // 如果找不到定義的callbackHandler則回傳錯誤訊息。
+                    console.log('The native context does not exist yet!');
+                ]
+            }
+        </script>
         <style>
             .button {
                 background-color: #4CAF50;
@@ -28,7 +31,7 @@
         </style>
     </head>
     <body style="font-family: HelveticaNeue-Light; font-size: 40px; color: #007934; background-color: #BEDCCD; padding: 65px">
-        <button class="button" onClick="callingApp()" type="button">Click Me!</button>
+        <button id="yes" onClick="callingApp()" type="button">Click Me!</button>
         <p style="font-size: 60px; ">PUDDIES PRIVACY POLICY</p>
         <p />
         Puddies respects your privacy. Puddies and its affiliates (“Puddies” or the “Company”) offer users of Puddies’s mobile applications (the “Application”) (collectively referred to as the “Services”). When you use our services, you’re trusting us with your information. We understand this is a big responsibility and work hard to protect your information and put you in control.
