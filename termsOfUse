@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script>
+            function callNativeApp(data) {   
+                try {
+                    webkit.messageHandlers.callbackHandler.postMessage(data);
+                } catch(err) {
+                    console.log('The native context does not exist yet!');
+                }
+            }
+        </script>
+        <style>
+            button#yes {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 50px 130px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-family: HelveticaNeue-Bold;
+                font-size: 60px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 100px;
+                margin-left: 60px;
+            }
+            button#no {
+                border: none;
+                color: #007934;
+                padding: 50px 50px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-family: HelveticaNeue-Light;
+                font-size: 60px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 100px;
+            }w
+        </style>
+    </head>
+    <body style="font-family: HelveticaNeue-Light; font-size: 40px; color: #007934; background-color: #BEDCCD; padding: 65px">
+        <p style="font-size: 60px; ">END USER LICENSE AGREEMENT</p>
+        <p />
+        Scroll down to accept this license agreement:
+        <p />
+        You're about to join the first and unigue network of drivers who joinning together building and share real-time parking intelligence (the "Service").  Since Puddies is 100% user generated, we need your collaboration and patience.
+        <p />
+        
+       
+        
+        <button id="yes" type="button" onclick="callNativeApp('agree')">Agree</button>
+        <button id="no" type="button" onclick="callNativeApp('disagree')">Disagree</button>
+    </body>
+</html>
